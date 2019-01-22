@@ -16,7 +16,7 @@ class Koordinator extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    // public function tahunajaran(){
-    //     return $this->hasMany(TahunAjaran::class, 'id_koordinator', 'id');
-    // }
+    public function tahunajaran(){
+        return $this->hasMany(TahunAjaran::class, 'id_koordinator', 'id');
+    }
 }

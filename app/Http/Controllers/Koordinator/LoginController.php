@@ -10,12 +10,12 @@ class LoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:admin')->except(['logout']);
+        $this->middleware('guest:koordinator')->except(['logout']);
     }
 
     public function showLoginForm()
     {
-        return view('admin.admin-login');
+        return view('koordinator.koordinator-login');
     }
     public function login(Request $request)
     {
@@ -29,14 +29,14 @@ class LoginController extends Controller
             'password' => $request->password
         ];
 
-        if (Auth::guard('admin')->attempt($credential, false)){
-            return redirect()->intended(route('admin.home'));
+        if (Auth::guard('koordinator')->attempt($credential, false)){
+            return redirect()->intended(route('koordinator.home'));
         }
         return redirect()->back()->withInput($request->only('email', 'remember'));
     }
     public function logout(Request $request)
     {
-        Auth::guard('admin')->logout();
+        Auth::guard('koordinator')->logout();
         return redirect('/');
     }
 }

@@ -79,9 +79,9 @@
           </a>
         </li>
         <li>
-          <a href="/admin/pendaftaran">
+          <a href="{{url('koordinator/tempatkp')}}">
             <i class="fa fa-files-o"></i>
-            <span>Pendaftaran</span>
+            <span>Tempat Kp</span>
           </a>
         </li>
         <li>
@@ -90,39 +90,15 @@
             <span>Kelompok</span>
           </a>
         </li>
+        
         <li>
-          <a href="/admin/jurnal">
-            <i class="fa  fa-list-alt"></i> <span>Jurnal</span>
-          </a>
-        </li>
-        <li>
-          <a href="/admin/tempat">
-            <i class="fa fa-black-tie"></i> <span>Tempat Kerja Praktek</span>
-          </a>
-        </li>
-        <li>
-          <a href="/admin/prodi">
-            <i class="fa fa-globe"></i> <span>Prodi</span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Data Master</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="/admin/admin"><i class="fa fa-circle-o"></i> Admin</a></li>
-            <li><a href="/admin/user"><i class="fa fa-circle-o"></i> User</a></li>
-            <li><a href="/admin/dosen"><i class="fa fa-circle-o"></i> Dosen</a></li>
-            <li><a href="/admin/pembina"><i class="fa fa-circle-o"></i> Pembina</a></li>
-            <li><a href="/admin/mahasiswa"><i class="fa fa-circle-o"></i> Mahasiswa</a></li> 
-          </ul>
-        </li>
-        <li>
-          <a href="/"><i class="fa fa-power-off"></i> Logout</a>
+          <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="">
+                <i class="fa fa-power-off"></i> Logout
+            </a>
+
+            <form id="logout-form" action="{{ route('koordinator.logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </li>
       </ul>
     </section>

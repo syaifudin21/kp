@@ -4,3 +4,5 @@ Route::get('/', 'Koordinator\KoordinatorController@index')->name('koordinator.ho
 Route::get('/login', 'Koordinator\LoginController@showLoginForm')->name('koordinator.login');
 Route::post('/login', 'Koordinator\LoginController@login')->name('koordinator.login');
 Route::post('/logout', 'Koordinator\LoginController@logout')->name('koordinator.logout');
+
+Route::resource('tempatkp', 'Koordinator\TempatKpController');

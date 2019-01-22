@@ -13,7 +13,7 @@ class KoordinatorController extends Controller
     }
     public function index()
     {
-    	return view('koordinator.dosen-dashboard');
+    	return view('koordinator.koordinator-dashboard');
     }
 
     /**

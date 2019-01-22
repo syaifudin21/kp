@@ -17,7 +17,7 @@ Lihat Data Prodi
       </div>
       <div class="form-group">
             <label for="exampleInputNamaMahasiswa">Koordinator</label>
-           {{-- <div>{{$ta->koordinator->nama}}</div>  --}}
+           <div>{{$ta->koordinator->nama}}</div> 
           </div>
       <a href="{{route('ta.index')}}" class="btn btn-block btn-infobtn-sm"><i class="fa fa-step-backward"></i> kembali</a> 
 </div>

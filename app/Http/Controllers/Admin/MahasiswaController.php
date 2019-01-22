@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Mahasiswa;
+use App\Models\Prodi;
 
 class MahasiswaController extends Controller
 {
@@ -16,11 +17,12 @@ class MahasiswaController extends Controller
     public function index()
     {
         $mahasiswas = Mahasiswa::paginate(10);
-        return view('admin.mahasiswa-create', compact('mahasiswas'));
+        return view('admin.mahasiswa', compact('mahasiswas'));
     }
     public function create()
     {
-        return view('admin.mahasiswa-create');
+        $prodis = Prodi::all();
+        return view('admin.mahasiswa-create', compact('prodis'));
     }
     
     public function store(Request $request)
@@ -36,7 +38,7 @@ class MahasiswaController extends Controller
         $mahasiswa['password'] = Hash::make($request['password']);
         $mahasiswa->save();
 
-        return back()->with('success', 'Berhasil Menambah Mahasiswa');
+        return redirect('admin/mahasiswa')->with('success', 'Berhasil Menambah Mahasiswa');
     }
     public function show(Mahasiswa $mahasiswa)
     {
@@ -44,7 +46,8 @@ class MahasiswaController extends Controller
     }
     public function edit(Mahasiswa $mahasiswa)
     {
-        return view('admin.mahasiswa-edit', compact('mahasiswa'));
+        $prodis = Prodi::all();
+        return view('admin.mahasiswa-edit', compact('mahasiswa', 'prodis'));
     }
     public function update(Request $request, Mahasiswa $mahasiswa)
     {
@@ -57,7 +60,7 @@ class MahasiswaController extends Controller
         $mahasiswa->fill($request->all());
         $mahasiswa->save();
 
-        return back()->with('success'. 'Berhasil Update Mahasiswa');
+        return redirect('admin/mahasiswa')->with('success'. 'Berhasil Update Mahasiswa');
     }
     
     public function destroy(Mahasiswa $mahasiswa)

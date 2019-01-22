@@ -1,4 +1,4 @@
-@extends('admin.admin-template')
+@extends('koordinator.koordinator-template')
 
 @section('content')
 <section class="content-header">

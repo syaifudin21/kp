@@ -37,32 +37,34 @@ class TahunAjaranController extends Controller
 
         return redirect('admin/ta')->with('success', 'Berhasil Menambah Tahun Ajaran');
     }
-    public function show(TahunAjaran $ta)
+    public function show($ta)
     {
-        dd($ta);
+        $ta = TahunAjaran::findOrFail($ta);
         return view('admin.ta-id', compact('ta'));
     }
-    public function edit(TahunAjaran $ta)
+    public function edit($ta)
     {
         $koordinators = Koordinator::all();
-        dd($ta);
+        $ta = TahunAjaran::findOrFail($ta);
         return view('admin.ta-edit', compact('ta', 'koordinators'));
     }
-    public function update(Request $request, TahunAjaran $ta)
+    public function update(Request $request, $ta)
     {
         $this->validate($request, [
             'tahun_ajaran' => 'required|string|max:255',
             'id_koordinator' => 'required|string|max:255'
         ]);
-
+        
+        $ta = TahunAjaran::findOrFail($ta);
         $ta->fill($request->all());
         $ta->save();
 
         return redirect('admin/ta')->with('success', 'Berhasil Update Tahun Ajaran');
     }
     
-    public function destroy(TahunAjaran $ta)
+    public function destroy($ta)
     {
+        $ta = TahunAjaran::findOrFail($ta);
         $ta->delete();
         return back()->with('success', 'Berhasil Menghapus Tahun Ajaran');
     }

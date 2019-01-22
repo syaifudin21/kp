@@ -126,7 +126,13 @@
           </ul>
         </li>
         <li>
-          <a href="/"><i class="fa fa-power-off"></i> Logout</a>
+            <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="">
+                <i class="fa fa-power-off"></i> Logout
+            </a>
+
+            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </li>
       </ul>
     </section>

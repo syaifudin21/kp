@@ -11,21 +11,15 @@ class Mahasiswa extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'name','hp','alamat','jk','email','id_prodi','ttl','agama','password'
+        'nama','nrp','hp','alamat','jk','email','id_prodi','ttl','agama','password'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function prodi(){
+        return $this->belongsTo(Prodi::class, 'id_prodi', 'id');
+    }
 }

@@ -14,7 +14,7 @@
     </div>
     <div class="box-body">
       <form role="form" action="{{route('ta.update',$ta->id)}}" method="post">
-        @csrf @method('put')
+        @csrf @method('put') dafasdf
         <div class="box-body">
           <div class="form-group{{ $errors->has('tahun_ajaran') ? ' has-error' : '' }}">
             <label for="exampleInputAlmatMahasiswa">Tahun Ajaran</label>
