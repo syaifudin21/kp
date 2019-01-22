@@ -18,7 +18,7 @@
       @csrf
       <div class="form-group{{ $errors->has('tahun_ajaran') ? ' has-error' : '' }}">
         <label for="tahun_ajaran">Tahun Ajaran</label>
-        <input type="text" class="form-control" id="tahun_ajaran" placeholder="Enter Tahun Ajaran" name="tahun_ajaran" value="{{old('tahun_ajaran')}}">
+        <input type="text" class="form-control" id="tahun_ajaran" name="tahun_ajaran" value="{{old('tahun_ajaran')}}">
         @if ($errors->has('tahun_ajaran'))
             <span class="help-block">
                 <strong>{{ $errors->first('tahun_ajaran') }}</strong>
@@ -30,7 +30,7 @@
         <select name="id_koordinator"  class="form-control" id="id_koordinator" placeholder="Enter Prodi" name="id_koordinator">
             <option value="" require selected>Nama Koordinator</option>
             @foreach ($koordinators as $koordinator)
-            <option value="{{$koordinator->id}}">{{$koordinator-nama}}</option>
+            <option value="{{$koordinator->id}}">{{$koordinator->nama}}</option>
             @endforeach
         </select>
          @if ($errors->has('id_koordinator'))

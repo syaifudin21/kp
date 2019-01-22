@@ -37,6 +37,7 @@ class ProdiController extends Controller
     }
     public function show(Prodi $prodi)
     {
+        dd($prodi);
         return view('admin.prodi-id', compact('prodi'));
     }
     public function edit(Prodi $prodi)

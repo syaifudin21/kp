@@ -39,11 +39,14 @@ class TahunAjaranController extends Controller
     }
     public function show(TahunAjaran $ta)
     {
+        dd($ta);
         return view('admin.ta-id', compact('ta'));
     }
     public function edit(TahunAjaran $ta)
     {
-        return view('admin.ta-edit', compact('ta'));
+        $koordinators = Koordinator::all();
+        dd($ta);
+        return view('admin.ta-edit', compact('ta', 'koordinators'));
     }
     public function update(Request $request, TahunAjaran $ta)
     {

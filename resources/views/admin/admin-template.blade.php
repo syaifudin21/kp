@@ -105,6 +105,11 @@
             <i class="fa fa-globe"></i> <span>Prodi</span>
           </a>
         </li>
+        <li>
+            <a href="{{url('admin/ta')}}">
+              <i class="fa fa-globe"></i> <span>Tahun Ajaran</span>
+            </a>
+          </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
