@@ -1,4 +1,4 @@
-@extends('admin.admin-template')
+@extends('mahasiswa.mahasiswa-template')
 
 @section('content')
 <section class="content-header">

@@ -40,7 +40,7 @@ class JurnalController extends Controller
         $komentar = new KomentarJurnal();
         $komentar->fill($request->all());
         $komentar['id_user'] = Auth::user()->id;
-        $komentar['auth'] = 'Mahasiswa';
+        $komentar['auth'] = 'Dosen';
         $komentar->save();
 
         return back()->with('success', 'Berhasil Memasukkan Komentar');

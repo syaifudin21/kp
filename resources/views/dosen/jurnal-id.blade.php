@@ -22,6 +22,15 @@
                 </table>
             </div>
 
+            <div class="box">
+            <div class="box-header"><b>Profil Mahasiswa</b></div>
+                <table class="table">
+                    <tr><td>Nama </td> <td>{{$diterima->mahasiswa->nama}}</td></tr>
+                    <tr><td>Alamat </td> <td>{{$diterima->mahasiswa->alamat}}</td></tr>
+                    <tr><td>NRP </td> <td>{{$diterima->mahasiswa->nrp}}</td></tr>
+                    <tr><td>Hp </td> <td>{{$diterima->mahasiswa->hp}}</td></tr>
+                </table>
+            </div>
         </div>
 
         <div class="col-sm-8">

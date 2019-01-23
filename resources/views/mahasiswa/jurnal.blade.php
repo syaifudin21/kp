@@ -1,4 +1,4 @@
-@extends('koordinator.koordinator-template')
+@extends('mahasiswa.mahasiswa-template')
 
 @section('content')
 <section class="content-header">

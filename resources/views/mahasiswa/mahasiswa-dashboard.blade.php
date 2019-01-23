@@ -19,7 +19,15 @@
 
             @if (session('success'))<div class="alert alert-default alert-dismissible">{!! session('success') !!}  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>@endif
             @if (session('gagal'))<div class="alert alert-danger">{!! session('gagal') !!}</div>@endif
-            
+         
+            @foreach ($pemberitahuans as $pemberitahuan)
+            <div class="alert alert-{{$pemberitahuan->warna}} alert-dismissible" role="alert">
+                <strong>{{$pemberitahuan->auth_pengirim}}</strong> {!!$pemberitahuan->pesan!!}
+                <button type="button" onclick="hapuspemberitahuan({{$pemberitahuan->id}})" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+        @endforeach
 
         @if (!empty($ta))
         
@@ -84,7 +92,7 @@
                 <table class="table">
 
                     <?php
-                        $mahasisatempats = App\Models\PendaftarTempatKp::where(['id_tahun'=> $ta->id, 'status'=>'Diterima'])->get();
+                        $mahasisatempats = App\Models\PendaftarTempatKp::where(['id_tahun'=> $ta->id, 'status'=>'Diterima', 'id_tempat_kp'=>$mhsditerima->id_tempat_kp])->get();
                         $dosenpembimbing = App\Models\DosenPembimbing::where(['id_tempat_kp'=> $mhsditerima->id_tempat_kp, 'id_tahun'=> $ta->id])->first();
                         $pembimbing = App\Models\Pembimbing::where(['id_tempat_kp'=> $mhsditerima->id_tempat_kp, 'id_tahun'=> $ta->id])->first();
                     ?>
@@ -122,6 +130,11 @@
 $(document).ready(function() {
     $('#example').DataTable();
 } );
+
+function hapuspemberitahuan(id) {
+  console.log(id)
+  $.get('{{ url('mahasiswa/pemberitahuan/terbaca')}}/'+id);
+}
 </script>
     
 @endsection

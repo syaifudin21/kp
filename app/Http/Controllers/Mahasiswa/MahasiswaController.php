@@ -17,8 +17,9 @@ class MahasiswaController extends Controller
     }
     public function index()
     {
+        $pemberitahuans = Pemberitahuan::where(['auth_penerima'=> 'Mahasiswa', 'id_penerima'=> Auth::user()->id, 'status'=> 'Terkirim'])->get();
         $ta = TahunAjaran::where('status', 'Dibuka')->first();
-    	return view('mahasiswa.mahasiswa-dashboard', compact('ta'));
+    	return view('mahasiswa.mahasiswa-dashboard', compact('ta', 'pemberitahuans'));
     }
     public function daftarkp($id_tahun, $id_tempat_kp)
     {
