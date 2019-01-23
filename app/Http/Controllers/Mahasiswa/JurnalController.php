@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Mahasiswa;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Jurnal;
 
 class JurnalController extends Controller
 {

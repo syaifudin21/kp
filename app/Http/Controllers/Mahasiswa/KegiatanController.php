@@ -33,10 +33,6 @@ class KegiatanController extends Controller
     
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'kegiatan' => 'required'
-        ]);
-
         $kegiatan = new KegiatanKp();
         $kegiatan->fill($request->all());
         $kegiatan->save();
