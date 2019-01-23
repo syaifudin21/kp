@@ -41,6 +41,8 @@
     <script src="assets/js/respond.min.js"></script>
     <![endif]-->
 
+    @yield('head')
+
 </head>
 
 <body>
@@ -56,12 +58,20 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto main-nav">
-                    <li class="menu-item active"><a title="Home" href="/home">Home</a></li>
-                    <li class="menu-item active"><a title="Bimbingan" href="/jurnalmahasiswa">Bimbingan</a></li>
-                    <li class="menu-item active"><a title="Registration" href="/pendaftaran">Pendaftaran</a></li>
-                    <li class="menu-item active"><a title="Hasil Pendaftaran" href="/hasilpendaftaran">Hasil Pendaftaran</a></li>
-                    <li class="menu-item active"><a title="History Pendaftaran" href="/pendaftaran/history">Histori Pendaftaran</a></li>
-                    <li class="menu-item active"><a title="Logout" href="/logoutuser">Logout</a></li>
+                    <li class="menu-item active"><a href="{{url('mahasiswa')}}">Home</a></li>
+                    <li class="menu-item active"><a href="{{url('mahasiswa/kegiatan')}}">Kegiatan Kp</a></li>
+                    <li class="menu-item active"><a href="{{url('mahasiswa/jurnal')}}">Bimbingan Jurnal</a></li>
+                    <li class="menu-item active"><a href="{{url('mahasiswa/pemberitahuan')}}">Pemberitahuan</a></li>
+                    <li class="menu-item active">
+                            <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="">
+                                    <i class="fa fa-power-off"></i> Logout
+                                </a>
+                    
+                                <form id="logout-form" action="{{ route('mahasiswa.logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>   
+                        
+                    </li>
                     <li class="menu-item active"></li>
                     <li class="menu-item active"></li>
                     <li class="menu-item active"></li>
@@ -215,6 +225,4 @@
     </script>
     @yield('script')
 </body>
-<!-- Mirrored from themerail.com/html/oficiona/home-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Dec 2018 03:43:19 GMT -->
-
 </html>

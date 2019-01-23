@@ -17,6 +17,8 @@ class CreateTahunAjaransTable extends Migration
             $table->increments('id');
             $table->string('tahun_ajaran');
             $table->integer('id_koordinator');
+            $table->enum('status',['Ditutup', 'Dibuka'])->default('Ditutup');
+            $table->enum('aktif',['ya', 'tidak'])->default('tidak');
             $table->timestamps();
         });
     }

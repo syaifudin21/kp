@@ -14,7 +14,7 @@
   </div>
   <div class="box-body">
     <div class="box-body">
-      <form method="post" action="{{route('tempatkp.store')}}">
+      <form method="post" action="{{route('tempatkp1.store')}}">
       @csrf
       <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
         <label for="nama">Nama Instansi</label>
@@ -25,6 +25,15 @@
             </span>
         @endif
       </div>
+      <div class="form-group{{ $errors->has('bidang') ? ' has-error' : '' }}">
+          <label for="bidang">Bidang Instansi</label>
+          <input type="text" class="form-control" id="bidang" placeholder="Bidang Instansi" name="bidang" value="{{old('bidang')}}">
+          @if ($errors->has('bidang'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('bidang') }}</strong>
+              </span>
+          @endif
+        </div>
       <div class="form-group{{ $errors->has('alamat') ? ' has-error' : '' }}">
         <label for="alamat">Alamat</label>
         <textarea class="form-control" id="alamat" placeholder="Alamat" name="alamat">{{old('alamat')}}</textarea>

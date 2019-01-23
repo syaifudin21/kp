@@ -64,7 +64,8 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
        <div class="pull-left info">
-          <p>{{Auth::user('auth:dosen')->nama}}</p>
+          <p>{{Auth::user('dosen')->nama}}</p>
+          Dosen
         </div>
         <div class="pull-left image">
           <img src="{{asset('dist/img/aknela1.png')}}" class="img-circle" alt="User Image">
@@ -74,55 +75,34 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li>
-          <a href="/admin">
+          <a href="{{url('dosen')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="/admin/pendaftaran">
-            <i class="fa fa-files-o"></i>
-            <span>Pendaftaran</span>
-          </a>
-        </li>
-        <li>
-          <a href="/admin/kelompok">
+          <a href="{{url('dosen/kerja-praktek')}}">
             <i class="fa fa-users"></i>
-            <span>Kelompok</span>
+            <span>Kerja Praktek</span>
           </a>
         </li>
         <li>
-          <a href="/admin/jurnal">
+          <a href="{{url('dosen/jurnal3')}}">
             <i class="fa  fa-list-alt"></i> <span>Jurnal</span>
           </a>
         </li>
         <li>
-          <a href="/admin/tempat">
+          <a href="{{url('dosen/tempatkp3')}}">
             <i class="fa fa-black-tie"></i> <span>Tempat Kerja Praktek</span>
           </a>
         </li>
         <li>
-          <a href="/admin/prodi">
-            <i class="fa fa-globe"></i> <span>Prodi</span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Data Master</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="/admin/admin"><i class="fa fa-circle-o"></i> Admin</a></li>
-            <li><a href="/admin/user"><i class="fa fa-circle-o"></i> User</a></li>
-            <li><a href="/admin/dosen"><i class="fa fa-circle-o"></i> Dosen</a></li>
-            <li><a href="/admin/pembina"><i class="fa fa-circle-o"></i> Pembina</a></li>
-            <li><a href="/admin/mahasiswa"><i class="fa fa-circle-o"></i> Mahasiswa</a></li> 
-          </ul>
-        </li>
-        <li>
-          <a href="/"><i class="fa fa-power-off"></i> Logout</a>
+            <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="">
+                <i class="fa fa-power-off"></i> Logout
+            </a>
+
+            <form id="logout-form" action="{{ route('dosen.logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </li>
       </ul>
     </section>

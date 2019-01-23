@@ -1,55 +1,110 @@
 @extends('mahasiswa.mahasiswa-template')
 
+@section('head')
+<link rel="stylesheet" href="{{url('https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')}}">
+@endsection
+
 @section('content')
 <div class="searchAndFilter-block">
     <div class="searchAndFilter">
-        <table class="table" style="border-top: 4px solid #17a2b8">
-            <tbody>
-                <tr>
-                    <th class="text-justify" style="min-width: 250px">
-                        <p> AKNELA (Akademi Komunitas Negeri Lamongan) merupakan salah satu dari 35
-                            Akademi Komunitas Negeri di seluruh Indonesia yang diberi ijin untuk menyelenggarakan
-                            Pendidikan Vokasi
-                            Diploma Dua oleh Dirjen Dikti pada Tahun 2012. AKNELA merupakan kelanjutan dari
-                            Program Pendidikan Profesi Satu Tahun (Community College Lamongan) yang didirikan pada
-                            tanggal 26 Oktober 2002.
-                            Saat ini AKNELA dalam bimbingan Politeknik Elektronika Negeri Surabaya (PENS) sebagai
-                            Politeknik pendamping sampai benar-benar bisa mandiri melalui skema Program Studi Di Luar
-                            Domisili (PDD). Kami menyelenggarakan pendidikan berkualitas di bidang teknik profesional
-                            yang terkait dengan Teknologi Informasi dan Multimedia Broadcasting untuk menghasilkan
-                            lulusan yang mampu berkompetisi di pasar global dengan menyediakan suasana akademis yang
-                            baik kepada mahasiswa.
-                            Dengan komposisi kurikulum 50 % praktek dan 50% teori.
-                        </p>
-                        <p>Salah satu kurikulum di Akademi Komunitas Negeri Lamongan adalah kegiatan mahasiswa yang
-                            dilakukan di masyarakat maupun di perusahaan atau instansi untuk mengaplikasikan ilmu yang
-                            diperoleh dan melihat relevansinya di masyarakat maupun melalui jalur pengembangan diri
-                            dengan
-                            mendalami bidang ilmu tertentu dan aplikasinya. Kerja Praktek umumnya dilaksanakan dalam
-                            kurun
-                            waktu 1 – 2 bulan, disesuaikan dengan kebijaksanaan kampus, Selama mengikuti kegiatan kerja
-                            praktek
-                            mahasiswa diberi kesempatan untuk belajar di lapangan, berhadapan langsung dengan obyek
-                            yang dipelajari,
-                            dan membandingkan dengan teori yang telah diperoleh di kampus, dengan menelaah secara
-                            mendalam mengenai berbagai
-                            aspek mata kuliah yang berkaitan dengan industri /perusahaan tersebut seperti: manajemen
-                            pengolahan data menggunakan
-                            Microsoft Office, MySql, PHP, Troubleshooting Hardware atau Software dan jaringan komputer
-                            yang ada di tempat kerja prakek.
-                        </p>
-                    </th>
-                    <th style="min-width: 300px">
-                        <br>
-                        <br>
-                        <ul style="list-style-type:disc">
-                            <li><a href="">Daftar Tempat Kerja Praktek</a></li>
-                            <li><a href="">Daftra Dosen Pembimbing</a></li>
-                        </ul>
-                    </th>
-                </tr>
-            </tbody>
-        </table>
+
+            @if (session('success'))<div class="alert alert-default alert-dismissible">{!! session('success') !!}  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>@endif
+            @if (session('gagal'))<div class="alert alert-danger">{!! session('gagal') !!}</div>@endif
+            
+
+        @if (!empty($ta))
+        
+        <?php
+            $tempatkps = App\Models\TempatKp::all();
+            $mhsdaftar = App\Models\PendaftarTempatKp::where(['id_tahun'=> $ta->id, 'id_mahasiswa'=> Auth::user('auth:mahasiswa')->id, 'status'=>'Pengajuan'])->first();
+            $mhsditerima = App\Models\PendaftarTempatKp::where(['id_tahun'=> $ta->id, 'id_mahasiswa'=> Auth::user('auth:mahasiswa')->id, 'status'=>'Diterima'])->first();
+            $n = 1;
+        ?>
+
+        @if (empty($mhsditerima))
+        <div class="alert alert-danger" role="alert">
+        Pendaftaran KP Telah dibuka Silahkan Mendaftar. Anda Hanya Mempunyai 1 Kali permintaan pendaftaran dalam masa pending. Koordinator Pendaftaran akan mengirim pesan persetujuan atau penolakan. Jika terjadi penolakan anda dapat mendaftar lagi.
+        </div>
+        <hr>
+        @endif
+
+        @if (!empty($mhsdaftar))
+            <div class="alert alert-primary" role="alert">
+                Anda Telah Mendaftar Silahkan menunggu Balasan Konrfirmasi Koordinator <br>
+                <b>{{$mhsdaftar->tempatkp->nama}} -  {{$mhsdaftar->tempatkp->alamat}}</b>
+            </div>
+        @endif
+
+        @if (empty($mhsditerima))
+            <table id="example" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Tempat KP</td>
+                        <td>Alamat KP</td>
+                        <td>Bidang</td>
+                        <td>Kapasitas</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    @foreach ($tempatkps as $tempatkp)
+                    <tr>
+                        <td>{{$n++}}</td>
+                        <td>{{$tempatkp->nama}}</td>
+                        <td>{{$tempatkp->alamat}}</td>
+                        <td>{{$tempatkp->bidang}}</td>
+                        <td>{{$tempatkp->kapasitas}}</td>
+                        <td>
+                            @if (empty($mhsdaftar))
+                                <a href="{{url('mahasiswa/daftarkp/'.$ta->id.'/'.$tempatkp->id)}}"  onclick="return confirm('Apakah Anda Yakin dengan keputusan Anda ?');" class="btn btn-outline-primary" style="padding: 8px">Daftar</a>
+                            @endif
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            @else
+                <table class="table">
+
+                    <?php
+                        $mahasisatempats = App\Models\PendaftarTempatKp::where(['id_tahun'=> $ta->id, 'status'=>'Diterima'])->get();
+                        $dosenpembimbing = App\Models\DosenPembimbing::where(['id_tempat_kp'=> $mhsditerima->id_tempat_kp, 'id_tahun'=> $ta->id])->first();
+                        $pembimbing = App\Models\Pembimbing::where(['id_tempat_kp'=> $mhsditerima->id_tempat_kp, 'id_tahun'=> $ta->id])->first();
+                    ?>
+                    <tr><td>Nama </td> <td>{{$mhsditerima->tempatkp->nama}}</td></tr>
+                    <tr><td>Alamat </td> <td>{{$mhsditerima->tempatkp->alamat}}</td></tr>
+                    <tr><td>Diterima </td> <td>{{$mhsditerima->tempatkp->bidang}}</td></tr>
+                    <tr><td>Kapasitas </td> <td>{{$mhsditerima->tempatkp->kapasitas}}</td></tr>
+                    <tr><td>Dosen </td> <td> {{(!empty($dosenpembimbing))? $dosenpembimbing->dosen->nama: ''}}</td>
+                    <tr><td>Pembimbing </td> <td> {{(!empty($pembimbing))? $pembimbing->nama: ''}}</td>
+                    </tr>
+                    <tr><td>Anggota </td> 
+                        <td>
+                            <ol>
+                                @foreach ($mahasisatempats as $mahasisatempat)
+                                    <li>{{$mahasisatempat->mahasiswa->nama}}</li>
+                                @endforeach
+                            </ol>
+                        </td>
+                    </tr>
+                </table>
+            @endif
+        @else
+        'Pendaftaran KP Dibuka'
+        @endif
     </div>
 </div>
+@endsection
+
+@section('script')
+<script src="{{url('https://code.jquery.com/jquery-3.3.1.js')}}"></script>
+<script src="{{url('https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')}}"></script>
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+    
 @endsection

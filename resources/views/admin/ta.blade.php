@@ -16,19 +16,25 @@
       
         <a href="{{route('ta.create')}}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Tambah</a>
     			<table class="table table-bordered">
-                    <tbody>
+                    <thead>
                     <tr>
                       <th style="width: 10px">No.</th>
                       <th>Tahun Ajaran</th>
                       <th>Koordinator </th>
+                      <th>Status </th>
+                      <th>Tampil </th>
                       <th style="width: 40px">Tombol</th>
                     </tr>
+                    </thead>
                     <?php $no = 1;?>
+                    <tbody>
                     @foreach($tas as $ta)
                     <tr>
                       <td>{{$no++}}</td>
                       <td>{{$ta->tahun_ajaran}}</td>
                       <td>{{$ta->koordinator->nama}}</td>
+                      <td>{{$ta->status}}</td>
+                      <td>{{$ta->aktif}}</td>
                       <td style="min-width: 300px">
                       <div class="btn-group-veritical">
                       <a href="{{route('ta.show',$ta->id)}}" type="button" class="btn btn-info"><i class="fa fa-eye"></i></a>

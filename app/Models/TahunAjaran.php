@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TahunAjaran extends Model
 {
     protected $fillable = [
-        'id','tahun_ajaran','id_koordinator'
+        'id','tahun_ajaran','id_koordinator', 'status', 'aktif'
     ];
 
     public function koordinator(){

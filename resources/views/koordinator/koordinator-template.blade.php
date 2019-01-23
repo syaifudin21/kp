@@ -64,7 +64,8 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
        <div class="pull-left info">
-          <p>{{Auth::user('auth:koordinator')->nama}}</p>
+          <p>{{Auth::user('koordinator')->nama}}</p>
+          Koordinator
         </div>
         <div class="pull-left image">
           <img src="{{asset('dist/img/aknela1.png')}}" class="img-circle" alt="User Image">
@@ -74,20 +75,20 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li>
-          <a href="/admin">
+          <a href="{{url('koordinator')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="{{url('koordinator/tempatkp')}}">
+          <a href="{{url('koordinator/tempatkp1')}}">
             <i class="fa fa-files-o"></i>
             <span>Tempat Kp</span>
           </a>
         </li>
         <li>
-          <a href="/admin/kelompok">
+          <a href="{{url('koordinator/pendaftar')}}">
             <i class="fa fa-users"></i>
-            <span>Kelompok</span>
+            <span>Pendaftar Kp</span>
           </a>
         </li>
         

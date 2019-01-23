@@ -1,4 +1,4 @@
-@extends('admin.admin-template')
+@extends('dosen.dosen-template')
 
 @section('content')
 <section class="content-header">
@@ -13,5 +13,6 @@
   <div class="box-header">
      
   </div>
+</div>
 </section>
 @endsection

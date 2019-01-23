@@ -13,7 +13,7 @@
     <div class="box-header">
     </div>
     <div class="box-body">
-      <form role="form" action="{{route('tempatkp.update',$tempatkp->id)}}" method="post">
+      <form role="form" action="{{route('tempatkp1.update',$tempatkp->id)}}" method="post">
         @csrf @method('put')
         <div class="box-body">
           <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
@@ -25,9 +25,18 @@
                 </span>
             @endif
           </div>
+          <div class="form-group{{ $errors->has('bidang') ? ' has-error' : '' }}">
+              <label for="bidang">Nama Instansi</label>
+              <input type="text" class="form-control" id="bidang" placeholder="Bidang Instanasi" name="bidang" value="{{$tempatkp->bidang}}">
+              @if ($errors->has('bidang'))
+                  <span class="help-block">
+                      <strong>{{ $errors->first('bidang') }}</strong>
+                  </span>
+              @endif
+            </div>
           <div class="form-group{{ $errors->has('alamat') ? ' has-error' : '' }}">
-            <label for="alamat">Kpaasitas</label>
-            <input type="text" class="form-control" id="alamat" placeholder="alamat" name="alamat" value="{{$tempatkp->alamat}}">
+            <label for="alamat">Alamat</label>
+            <textarea class="form-control" id="alamat" placeholder="Alamat" name="alamat">{{$tempatkp->alamat}}</textarea>
             @if ($errors->has('alamat'))
                 <span class="help-block">
                     <strong>{{ $errors->first('alamat') }}</strong>

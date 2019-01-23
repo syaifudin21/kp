@@ -17,7 +17,10 @@ class CreateTempatKpsTable extends Migration
             $table->increments('id');
             $table->text('nama');
             $table->text('alamat');
+            $table->string('bidang');
             $table->integer('kapasitas');
+            $table->enum('auth',['Admin', 'Koordinator', 'Mahasiswa', 'Dosen']);
+            $table->integer('id_user');
             $table->timestamps();
         });
     }

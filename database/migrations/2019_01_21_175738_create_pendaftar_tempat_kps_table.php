@@ -16,10 +16,9 @@ class CreatePendaftarTempatKpsTable extends Migration
         Schema::create('pendaftar_tempat_kps', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_tahun');
-            $table->integer('id_dosen')->nullable();
             $table->integer('id_tempat_kp');
-            $table->string('id_mahasiswa');
-            $table->enum('status',['Open','Close']);
+            $table->integer('id_mahasiswa');
+            $table->enum('status',['Pengajuan','Diterima', 'Ditolak'])->default('Pengajuan');
             $table->timestamps();
         });
     }

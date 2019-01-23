@@ -10,3 +10,4 @@ Route::resource('ta', 'Admin\TahunAjaranController');
 Route::resource('mahasiswa', 'Admin\MahasiswaController');
 Route::resource('dosen', 'Admin\DosenController');
 Route::resource('koordinator', 'Admin\KoordinatorController');
+Route::resource('tempatkp2', 'Admin\TempatKpController');

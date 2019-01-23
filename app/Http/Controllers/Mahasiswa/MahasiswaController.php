@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Mahasiswa;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\TahunAjaran;
+use App\Models\PendaftarTempatKp;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Pemberitahuan;
 
 class MahasiswaController extends Controller
 {
@@ -13,72 +17,28 @@ class MahasiswaController extends Controller
     }
     public function index()
     {
-    	return view('mahasiswa.mahasiswa-dashboard');
+        $ta = TahunAjaran::where('status', 'Dibuka')->first();
+    	return view('mahasiswa.mahasiswa-dashboard', compact('ta'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function daftarkp($id_tahun, $id_tempat_kp)
     {
-        //
+        $daftar = new PendaftarTempatKp();
+        $daftar['id_tahun'] = $id_tahun;
+        $daftar['id_tempat_kp'] = $id_tempat_kp;
+        $daftar['id_mahasiswa'] = Auth::user('auth:mahasiswa')->id;
+        $daftar->save();
+
+        return back()->with('success', 'Berhasil Mendaftar Tempat KP, silahkan menunggu Persetujuan Koordinator KP');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function pemberitahuan()
     {
-        //
+        $pemberitahuans = Pemberitahuan::where(['auth_penerima'=> 'Mahasiswa', 'id_penerima'=> Auth::user()->id, 'status'=> 'Terkirim'])->get();
+        return view('mahasiswa.pemberitahuan', compact('pemberitahuans'));
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function terbaca($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $pemberitahuan = Pemberitahuan::find($id);
+        $pemberitahuan['status'] = 'Terbaca';
+        $pemberitahuan->save();
     }
 }

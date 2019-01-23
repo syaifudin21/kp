@@ -16,7 +16,7 @@ class CreatePembimbingsTable extends Migration
         Schema::create('pembimbings', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_tahun');
-            $table->integer('id_pendaftar'); //kelompok kp
+            $table->integer('id_tempat_kp');
             $table->string('nama');
             $table->string('hp')->nullable();
             $table->text('alamat')->nullable();

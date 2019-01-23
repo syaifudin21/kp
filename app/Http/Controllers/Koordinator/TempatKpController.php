@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Koordinator;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Models\TempatKp;
 
 class TempatKpController extends Controller
@@ -32,19 +33,23 @@ class TempatKpController extends Controller
 
         $tempatkp = new TempatKp();
         $tempatkp->fill($request->all());
+        $tempatkp['auth'] = 'Koordinator';
+        $tempatkp['id_user'] = Auth::user('auth:koordinator')->id;
         $tempatkp->save();
 
-        return redirect('koordinator/tempatkp')->with('success', 'Berhasil Menambah Tempat KP');
+        return redirect('koordinator/tempatkp1')->with('success', 'Berhasil Menambah Tempat KP');
     }
-    public function show(TempatKp $tempatkp)
+    public function show($id)
     {
+        $tempatkp = TempatKp::findOrFail($id);
         return view('koordinator.tempatkp-id', compact('tempatkp'));
     }
-    public function edit(TempatKp $tempatkp)
+    public function edit($id)
     {
+        $tempatkp = TempatKp::findOrFail($id);
         return view('koordinator.tempatkp-edit', compact('tempatkp'));
     }
-    public function update(Request $request, TempatKp $tempatkp)
+    public function update(Request $request, $id)
     {
         $this->validate($request, [
             'nama' => 'required|string|max:255',
@@ -52,14 +57,16 @@ class TempatKpController extends Controller
             'kapasitas' => 'required|string|max:255'
         ]);
 
+        $tempatkp = TempatKp::findOrFail($id);
         $tempatkp->fill($request->all());
         $tempatkp->save();
 
-        return redirect('koordinator/tempatkp')->with('success', 'Berhasil Update Tempat KP');
+        return redirect('koordinator/tempatkp1')->with('success', 'Berhasil Update Tempat KP');
     }
     
-    public function destroy(TempatKp $tempatkp)
+    public function destroy($id)
     {
+        $tempatkp = TempatKp::findOrFail($id);
         $tempatkp->delete();
         return back()->with('success', 'Berhasil Menghapus Tempat KP');
     }

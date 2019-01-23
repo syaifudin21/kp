@@ -15,9 +15,11 @@ class CreateKegiatanKpsTable extends Migration
     {
         Schema::create('kegiatan_kps', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_pendaftar'); //id_kelompok
+            $table->integer('id_tahun'); 
+            $table->integer('id_tempat_kp'); 
             $table->text('kegiatan');
             $table->enum('status',['Belum Diverifikasi', 'Verifikasi'])->default('Belum Diverifikasi');
+            $table->integer('id_pembimbing')->nullable(); 
             $table->timestamps();
         });
     }

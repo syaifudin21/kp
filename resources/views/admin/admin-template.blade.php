@@ -79,24 +79,18 @@
           </a>
         </li>
         <li>
-          <a href="/admin/pendaftaran">
+          <a href="{{url('admin/pendaftaran')}}">
             <i class="fa fa-files-o"></i>
             <span>Pendaftaran</span>
           </a>
         </li>
         <li>
-          <a href="/admin/kelompok">
-            <i class="fa fa-users"></i>
-            <span>Kelompok</span>
-          </a>
-        </li>
-        <li>
-          <a href="/admin/jurnal">
+          <a href="{{url('admin/jurnal')}}">
             <i class="fa  fa-list-alt"></i> <span>Jurnal</span>
           </a>
         </li>
         <li>
-          <a href="/admin/tempat">
+          <a href="{{url('admin/tempatkp2')}}">
             <i class="fa fa-black-tie"></i> <span>Tempat Kerja Praktek</span>
           </a>
         </li>

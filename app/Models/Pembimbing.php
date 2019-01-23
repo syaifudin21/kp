@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -17,7 +16,7 @@ class Pembimbing extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nama', 'email', 'password',
+        'id_tahun','id_tempat_kp','nama','hp','alamat','password', 'email'
     ];
 
     /**

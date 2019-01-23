@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="login-logo">
-    <b>Login Admin</b>
+    <b>Login Mahasiswa</b>
   </div>
   <div class="login-box-body">
     <p class="login-box-msg">Sistem Informasi Pendaftran Dan Bimbingan Kerja Praktek </p>

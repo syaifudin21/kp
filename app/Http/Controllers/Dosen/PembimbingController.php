@@ -4,82 +4,61 @@ namespace App\Http\Controllers\Dosen;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Pembimbing;
+use Illuminate\Support\Facades\Hash;
 
 class PembimbingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->middleware('auth:dosen');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create($id_tahun, $id_tempat_kp)
     {
-        //
+        return view('dosen.pembimbing-create', compact('id_tahun', 'id_tempat_kp'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
-    }
+        $this->validate($request, [
+            'nama' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:pembimbings',
+            'password' => 'required|string|min:6|confirmed|alpha_num',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $pembimbing = new Pembimbing();
+        $pembimbing->fill($request->all());
+        $pembimbing['password'] = Hash::make($request['password']);
+        $pembimbing->save();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return redirect('dosen/kerja-praktek/detail/'.$request->id_tahun.'/'.$request->id_tempat_kp)->with('success', 'Berhasil Menambah Pembimbing');
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function show(Pembimbing $pembimbing)
     {
-        //
+        return view('dosen.pembimbing-id', compact('pembimbing'));
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function edit(Pembimbing $pembimbing)
     {
-        //
+        return view('dosen.pembimbing-edit', compact('pembimbing'));
+    }
+    public function update(Request $request, Pembimbing $pembimbing)
+    {
+        $this->validate($request, [
+            'nama' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:6|confirmed|alpha_num',
+        ]);
+
+        $pembimbing->fill($request->all());
+        $pembimbing['password'] = Hash::make($request['password']);
+        $pembimbing->save();
+
+        return redirect('dosen/kerja-praktek/detail/'.$pembimbing->id_tahun.'/'.$pembimbing->id_tempat_kp)->with('success', 'Berhasil Mengubah Pembimbing');
+    }
+    
+    public function destroy(Pembimbing $pembimbing)
+    {
+        $pembimbing->delete();
+        return back()->with('success', 'Berhasil Menghapus Pembimbing');
     }
 }
