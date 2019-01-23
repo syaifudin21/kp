@@ -10,7 +10,8 @@ Route::get('/daftarkp/{id_tahun}/{id_tempat_kp}', 'Mahasiswa\MahasiswaController
 Route::resource('kegiatan', 'Mahasiswa\KegiatanController');
 
 Route::get('/jurnal', 'Mahasiswa\JurnalController@index')->name('jurnal.index');
-Route::post('/jurnal/{id}', 'Mahasiswa\JurnalController@store')->name('jurnal.store');
+Route::post('/jurnal/store/', 'Mahasiswa\JurnalController@store')->name('jurnal.store');
+Route::post('/komentar/store/', 'Mahasiswa\JurnalController@komentar')->name('komentar.store');
 
 Route::get('/pemberitahuan', 'Mahasiswa\MahasiswaController@pemberitahuan');
 Route::get('/pemberitahuan/terbaca/{id}', 'Mahasiswa\MahasiswaController@terbaca');

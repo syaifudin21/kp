@@ -19,8 +19,8 @@ class KegiatanController extends Controller
     {
         $ta = TahunAjaran::where('aktif', 'ya')->first();
         $diterima = PendaftarTempatKp::where(['id_mahasiswa'=> Auth::user()->id, 'id_tahun'=> $ta->id,'status'=> 'Diterima'])->first();
-        $kegiatans = KegiatanKp::where(['id_tahun'=> $ta->id, 'id_tempat_kp'=> $diterima->id_tempat_kp])->paginate(10);
-        if (!empty($kegiatans)) {
+        if (!empty($diterima)) {
+            $kegiatans = KegiatanKp::where(['id_tahun'=> $ta->id, 'id_tempat_kp'=> $diterima->id_tempat_kp])->paginate(10);
             return view('mahasiswa.kegiatan', compact('ta', 'diterima', 'kegiatans'));
         }else{
             return redirect('mahasiswa')->with('gagal', 'Anda Belum Diterima Di Instanasi');
@@ -55,7 +55,7 @@ class KegiatanController extends Controller
         return redirect('mahasiswa/kegiatan')->with('success', 'Berhasil Update Kegiatan');
     }
     
-    public function destroy(Prodi $kegiatan)
+    public function destroy(KegiatanKp $kegiatan)
     {
         $kegiatan->delete();
         return back()->with('success', 'Berhasil Menghapus Prodi');

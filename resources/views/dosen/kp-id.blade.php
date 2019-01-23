@@ -65,7 +65,16 @@
         </div>
         
         <div class="col-sm-4">
-            
+            <div class="box">
+            <div class="box-header"> <b>Kegiatan</b></div>
+            <table class="table table-bordered table-sm">
+                    @foreach ($kegiatans as $kegiatan)
+                    <tr>
+                        <td>{{$kegiatan->created_at}} <br> {{$kegiatan->kegiatan}} - {{$kegiatan->status}}</td>
+                    </tr>
+                    @endforeach
+            </table>
+            </div>
 
         </div>
             

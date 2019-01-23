@@ -1,55 +1,61 @@
-@extends('mahasiswa.mahasiswa-template')
+@extends('pembimbing.pembimbing-template')
 
 @section('content')
-<div class="searchAndFilter-block">
-    <div class="searchAndFilter">
-        <table class="table" style="border-top: 4px solid #17a2b8">
-            <tbody>
+<section class="content-header">
+  <h1>
+    {{$tempatkp->nama}} - {{$ta->tahun_ajaran}}
+  </h1> 
+</section>
+<!---Main Content-->
+<section class ="content">
+        @if (session('success'))<div class="alert alert-success alert-dismissible">{!! session('success') !!}  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>@endif
+        @if (session('gagal'))<div class="alert alert-danger">{!! session('gagal') !!}</div>@endif
+        
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="box">
+            <div class="box-header"><b>Detail Kerja Praktek</b></div>
+                <table class="table">
+                    <tr><td>Nama </td> <td>{{$tempatkp->nama}}</td></tr>
+                    <tr><td>Alamat </td> <td>{{$tempatkp->alamat}}</td></tr>
+                    <tr><td>Diterima </td> <td>{{$tempatkp->bidang}}</td></tr>
+                    <tr><td>Kapasitas </td> <td>{{$tempatkp->kapasitas}}</td></tr>
+                    <tr><td>Dosen Pembimbing </td> <td>{{$dosen->dosen->nama}}</td></tr>
+                </table>
+            </div>
+
+        </div>
+        <div class="col-sm-4">
+            <div class="box">
+            <div class="box-header"><b>Mahasiswa</b></div>
+            <table class="table">
+                @foreach ($mahasiswas as $mahasiswa)
                 <tr>
-                    <th class="text-justify" style="min-width: 250px">
-                        <p> AKNELA (Akademi Komunitas Negeri Lamongan) merupakan salah satu dari 35
-                            Akademi Komunitas Negeri di seluruh Indonesia yang diberi ijin untuk menyelenggarakan
-                            Pendidikan Vokasi
-                            Diploma Dua oleh Dirjen Dikti pada Tahun 2012. AKNELA merupakan kelanjutan dari
-                            Program Pendidikan Profesi Satu Tahun (Community College Lamongan) yang didirikan pada
-                            tanggal 26 Oktober 2002.
-                            Saat ini AKNELA dalam bimbingan Politeknik Elektronika Negeri Surabaya (PENS) sebagai
-                            Politeknik pendamping sampai benar-benar bisa mandiri melalui skema Program Studi Di Luar
-                            Domisili (PDD). Kami menyelenggarakan pendidikan berkualitas di bidang teknik profesional
-                            yang terkait dengan Teknologi Informasi dan Multimedia Broadcasting untuk menghasilkan
-                            lulusan yang mampu berkompetisi di pasar global dengan menyediakan suasana akademis yang
-                            baik kepada mahasiswa.
-                            Dengan komposisi kurikulum 50 % praktek dan 50% teori.
-                        </p>
-                        <p>Salah satu kurikulum di Akademi Komunitas Negeri Lamongan adalah kegiatan mahasiswa yang
-                            dilakukan di masyarakat maupun di perusahaan atau instansi untuk mengaplikasikan ilmu yang
-                            diperoleh dan melihat relevansinya di masyarakat maupun melalui jalur pengembangan diri
-                            dengan
-                            mendalami bidang ilmu tertentu dan aplikasinya. Kerja Praktek umumnya dilaksanakan dalam
-                            kurun
-                            waktu 1 – 2 bulan, disesuaikan dengan kebijaksanaan kampus, Selama mengikuti kegiatan kerja
-                            praktek
-                            mahasiswa diberi kesempatan untuk belajar di lapangan, berhadapan langsung dengan obyek
-                            yang dipelajari,
-                            dan membandingkan dengan teori yang telah diperoleh di kampus, dengan menelaah secara
-                            mendalam mengenai berbagai
-                            aspek mata kuliah yang berkaitan dengan industri /perusahaan tersebut seperti: manajemen
-                            pengolahan data menggunakan
-                            Microsoft Office, MySql, PHP, Troubleshooting Hardware atau Software dan jaringan komputer
-                            yang ada di tempat kerja prakek.
-                        </p>
-                    </th>
-                    <th style="min-width: 300px">
-                        <br>
-                        <br>
-                        <ul style="list-style-type:disc">
-                            <li><a href="">Daftar Tempat Kerja Praktek</a></li>
-                            <li><a href="">Daftra Dosen Pembimbing</a></li>
-                        </ul>
-                    </th>
+                    <td>{{$mahasiswa->mahasiswa->nama}}</td>
                 </tr>
-            </tbody>
-        </table>
+                @endforeach
+            </table>
+            </div>
+
+            <div class="box">
+                    <div class="box-header"> <b>Pembimbing</b>
+                    </div>
+                    <table class="table">
+                        @foreach ($pembimbings as $pembimbing)
+                        <tr>
+                            <td>{{$pembimbing->nama}}</td>
+                        </tr>
+                        @endforeach
+                    </table>
+                    </div>
+
+        </div>
+        
+        <div class="col-sm-4">
+            
+
+        </div>
+            
     </div>
-</div>
+</section>
 @endsection

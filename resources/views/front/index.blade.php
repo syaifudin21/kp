@@ -75,10 +75,6 @@
         <div class="row">
             <div class="col">
                 <div class="searchAndFilter">
-                    <div class="text-right">
-                        <a href="/loginuser" class="btn btn-info btn-lg" style="padding: 5px;" title="Login User">Login</a>
-                        <a href="/loginuser" class="btn btn-info btn-lg" style="padding: 5px;" title="Login Admin" data-toggle="modal" data-target="#exampleModalLong">Admin</a>
-                    </div>
                     <h3 class="text-center">Selamat Datang</h3>
                     <br>
                     <table class="table" style="border-top: 4px solid #17a2b8">
@@ -102,6 +98,14 @@
                             </tr>
                         </tbody>
                     </table>
+
+                    <div style="text-align: center">
+                        <a href="{{url('admin')}}" class="btn btn-outline-primary btn-lg" style="padding: 10px">Login Admin</a>
+                        <a href="{{url('koordinator')}}" class="btn btn-outline-primary btn-lg" style="padding: 10px">Login Koordinator</a>
+                        <a href="{{url('dosen')}}" class="btn btn-outline-primary btn-lg" style="padding: 10px">Login Dosen</a>
+                        <a href="{{url('pembimbing')}}" class="btn btn-outline-primary btn-lg" style="padding: 10px">Login Pembimbing</a>
+                        <a href="{{url('mahasiswa')}}" class="btn btn-outline-primary btn-lg" style="padding: 10px">Login Mahasiswa</a>
+                    </div>
                 </div>
             </div>
         </div>

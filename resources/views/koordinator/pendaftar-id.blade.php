@@ -28,6 +28,7 @@
                     <form action="{{route('dosenpembimbing.store')}}" method="post">
                         @csrf 
                         <input type="hidden" name="id_tempat_kp" value="{{$tempatkp->id}}">
+                        <input type="hidden" name="id_tahun" value="{{$ta->id}}">
                         <div class="form-group">
                         <label for="exampleFormControlSelect1">Pilih Dosen</label>
                         <select class="form-control" name="id_dosen" id="exampleFormControlSelect1">
@@ -44,6 +45,7 @@
                         @csrf  @method('put')
                         <input type="hidden" name="id" value="{{$dosenpembimbing->id}}">
                         <input type="hidden" name="id_tempat_kp" value="{{$tempatkp->id}}">
+                        <input type="hidden" name="id_tahun" value="{{$ta->id}}">
                         <div class="form-group">
                         <label for="exampleFormControlSelect1">Pilih Dosen</label>
                         <select class="form-control" name="id_dosen" id="exampleFormControlSelect1">
@@ -75,8 +77,6 @@
             </table>
             </div>
 
-        </div>
-        <div class="col-sm-4">
             <div class="box">
             <div class="box-header"><b>Mahasiswa Diterima</b></div>
             <table class="table">
@@ -98,6 +98,18 @@
                 @endforeach
             </table>
             </div>
+        </div>
+        <div class="col-sm-4">
+                <div class="box">
+                <div class="box-header"> <b>Kegiatan</b></div>
+                <table class="table table-bordered table-sm">
+                        @foreach ($kegiatans as $kegiatan)
+                        <tr>
+                            <td>{{$kegiatan->created_at}} <br> {{$kegiatan->kegiatan}} - {{$kegiatan->status}}</td>
+                        </tr>
+                        @endforeach
+                </table>
+                </div>
         </div>
     </div>
 <!---Default box-->

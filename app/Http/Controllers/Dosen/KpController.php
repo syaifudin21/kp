@@ -8,6 +8,7 @@ use App\Models\TahunAjaran;
 use App\Models\TempatKp;
 use App\Models\PendaftarTempatKp;
 use App\Models\Pembimbing;
+use App\Models\KegiatanKp;
 
 class KpController extends Controller
 {
@@ -26,7 +27,7 @@ class KpController extends Controller
         $tempatkp = TempatKp::find($id_tempat_kp);
         $mahasiswas = PendaftarTempatKp::where(['status'=> 'Diterima', 'id_tempat_kp'=> $id_tempat_kp, 'id_tahun'=> $id_tahun])->get();
         $pembimbings = Pembimbing::where(['id_tempat_kp'=> $id_tempat_kp, 'id_tahun'=> $id_tahun])->get();
-
-        return view('dosen.kp-id', compact('ta', 'tempatkp', 'mahasiswas', 'pembimbings'));
+        $kegiatans = KegiatanKp::where(['id_tempat_kp'=> $id_tempat_kp, 'id_tahun'=> $id_tahun])->get();
+        return view('dosen.kp-id', compact('ta', 'tempatkp', 'mahasiswas', 'pembimbings', 'kegiatans'));
     }
 }

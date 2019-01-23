@@ -78,7 +78,7 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li>
+        {{-- <li>
           <a href="{{url('admin/pendaftaran')}}">
             <i class="fa fa-files-o"></i>
             <span>Pendaftaran</span>
@@ -88,7 +88,7 @@
           <a href="{{url('admin/jurnal')}}">
             <i class="fa  fa-list-alt"></i> <span>Jurnal</span>
           </a>
-        </li>
+        </li> --}}
         <li>
           <a href="{{url('admin/tempatkp2')}}">
             <i class="fa fa-black-tie"></i> <span>Tempat Kerja Praktek</span>

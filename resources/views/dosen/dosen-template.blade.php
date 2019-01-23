@@ -86,7 +86,7 @@
           </a>
         </li>
         <li>
-          <a href="{{url('dosen/jurnal3')}}">
+          <a href="{{url('dosen/jurnal')}}">
             <i class="fa  fa-list-alt"></i> <span>Jurnal</span>
           </a>
         </li>

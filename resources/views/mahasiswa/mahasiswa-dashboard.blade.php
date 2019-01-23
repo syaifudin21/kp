@@ -1,12 +1,21 @@
 @extends('mahasiswa.mahasiswa-template')
 
 @section('head')
-<link rel="stylesheet" href="{{url('https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')}}">
+<link rel="stylesheet" href="{{url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{url('https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css')}}">
 @endsection
 
 @section('content')
-<div class="searchAndFilter-block">
-    <div class="searchAndFilter">
+<section class="content-header">
+        <h1>
+           Dashboard
+        </h1>	
+    </section>
+    <!---Main Content-->
+    <section class ="content">
+    <!---Default box-->
+    <div class="box">
+        <div class="box-body">
 
             @if (session('success'))<div class="alert alert-default alert-dismissible">{!! session('success') !!}  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>@endif
             @if (session('gagal'))<div class="alert alert-danger">{!! session('gagal') !!}</div>@endif
@@ -36,7 +45,7 @@
         @endif
 
         @if (empty($mhsditerima))
-            <table id="example" class="display" style="width:100%">
+            <table id="example" class="table table-bordered" style="width:100%">
                 <thead>
                     <tr>
                         <td>#</td>
@@ -50,15 +59,21 @@
                 <tbody>
                     
                     @foreach ($tempatkps as $tempatkp)
+                    <?php
+                        $ditrima = App\Models\PendaftarTempatKp::where('id_tempat_kp', $tempatkp->id)
+                                        ->where('id_tahun', $ta->id)
+                                        ->where('status', 'Diterima')
+                                        ->count();
+                    ?>
                     <tr>
                         <td>{{$n++}}</td>
                         <td>{{$tempatkp->nama}}</td>
                         <td>{{$tempatkp->alamat}}</td>
                         <td>{{$tempatkp->bidang}}</td>
-                        <td>{{$tempatkp->kapasitas}}</td>
+                        <td>({{$ditrima}}/{{$tempatkp->kapasitas}})</td>
                         <td>
-                            @if (empty($mhsdaftar))
-                                <a href="{{url('mahasiswa/daftarkp/'.$ta->id.'/'.$tempatkp->id)}}"  onclick="return confirm('Apakah Anda Yakin dengan keputusan Anda ?');" class="btn btn-outline-primary" style="padding: 8px">Daftar</a>
+                            @if (empty($mhsdaftar) && $ditrima < $tempatkp->kapasitas)
+                                <a href="{{url('mahasiswa/daftarkp/'.$ta->id.'/'.$tempatkp->id)}}"  onclick="return confirm('Apakah Anda Yakin dengan keputusan Anda ?');" class="btn btn-primary" style="padding: 8px">Daftar</a>
                             @endif
                         </td>
                     </tr>
@@ -96,11 +111,13 @@
         @endif
     </div>
 </div>
+    </section>
 @endsection
 
 @section('script')
 <script src="{{url('https://code.jquery.com/jquery-3.3.1.js')}}"></script>
 <script src="{{url('https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{url('https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js')}}"></script>
 <script>
 $(document).ready(function() {
     $('#example').DataTable();

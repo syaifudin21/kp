@@ -5,13 +5,21 @@
 @endsection
 
 @section('content')
-<div class="searchAndFilter-block">
-    <div class="searchAndFilter">
-        @if (count($pemberitahuans)==0)
+<section class="content-header">
+        <h1>
+           Pemberitahuan
+        </h1>	
+    </section>
+    <!---Main Content-->
+    <section class ="content">
+    <!---Default box-->
+    <div class="box">
+        <div class="box-body">
+        @if (empty($pemberitahuans))
         Tidak Ada Pemberitahuan untuk Anda
         @else
         @foreach ($pemberitahuans as $pemberitahuan)
-            <div class="alert alert-{{$pemberitahuan->warna}} alert-dismissible fade show" role="alert">
+            <div class="alert alert-{{$pemberitahuan->warna}} alert-dismissible" role="alert">
                 <strong>{{$pemberitahuan->auth_pengirim}}</strong> {!!$pemberitahuan->pesan!!}
                 <button type="button" onclick="hapuspemberitahuan({{$pemberitahuan->id}})" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -21,6 +29,7 @@
         @endif
     </div>
 </div>
+    </section>
 @endsection
 
 @section('script')

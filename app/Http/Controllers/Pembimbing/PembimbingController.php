@@ -4,6 +4,13 @@ namespace App\Http\Controllers\Pembimbing;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Models\TahunAjaran;
+use App\Models\TempatKp;
+use App\Models\PendaftarTempatKp;
+use App\Models\Pembimbing;
+use App\Models\KegiatanKp;
+use App\Models\DosenPembimbing;
 
 class PembimbingController extends Controller
 {
@@ -13,72 +20,32 @@ class PembimbingController extends Controller
     }
     public function index()
     {
-    	return view('pembimbing.pembimbing-dashboard');
+        $ta = TahunAjaran::find(Auth::user()->id_tahun);
+        $tempatkp = TempatKp::find(Auth::user()->id_tempat_kp);
+        $mahasiswas = PendaftarTempatKp::where(['status'=> 'Diterima', 'id_tempat_kp'=> Auth::user()->id_tempat_kp, 'id_tahun'=>Auth::user()->id_tahun])->get();
+        $pembimbings = Pembimbing::where(['id_tempat_kp'=> Auth::user()->id_tempat_kp, 'id_tahun'=> Auth::user()->id_tahun])->get();
+
+        $dosen = DosenPembimbing::where('id_tempat_kp', Auth::user()->id_tempat_kp)->first();
+
+    	return view('pembimbing.pembimbing-dashboard', compact('ta', 'dosen', 'tempatkp', 'mahasiswas', 'pembimbings'));
+    }
+    public function kegiatan()
+    {
+        $ta = TahunAjaran::where('aktif', 'ya')->first();
+        $kegiatans = KegiatanKp::where(['id_tahun'=> $ta->id, 'id_tempat_kp'=>  Auth::user()->id_tempat_kp])->paginate(10);
+        if (!empty($kegiatans)) {
+            return view('pembimbing.kegiatan', compact('ta', 'kegiatans'));
+        }else{
+            return redirect('pembimbing')->with('gagal', 'Anda Belum Diterima Di Instanasi');
+        }
+    }
+    public function verifikasi($id)
+    {
+        $kegiatan = KegiatanKp::find($id);
+        $kegiatan['status'] = 'Verifikasi';
+        $kegiatan['id_pembimbing'] = Auth::user()->id;
+        $kegiatan->save();
+        return back()->with('success', 'Berhasil Verifikasi Kegiatan Mahasiswa');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

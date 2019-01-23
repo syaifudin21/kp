@@ -16,9 +16,9 @@ class CreateKomentarJurnalsTable extends Migration
         Schema::create('komentar_jurnals', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_jurnal');
-            $table->integer('id_member');
             $table->text('komentar');
-            $table->enum('status',['Dosen', 'Mahasiswa']);
+            $table->enum('auth',['Dosen', 'Mahasiswa']);
+            $table->integer('id_user');
             $table->timestamps();
         });
     }

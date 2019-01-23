@@ -11,6 +11,7 @@ use App\Models\Dosen;
 use App\Models\DosenPembimbing;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Pemberitahuan;
+use App\Models\KegiatanKp;
 
 class PendaftarController extends Controller
 {
@@ -35,8 +36,9 @@ class PendaftarController extends Controller
         $mhspengajuans = PendaftarTempatKp::where(['status'=> 'Pengajuan', 'id_tempat_kp'=> $id_tempat_kp, 'id_tahun'=> $id_tahun])->get();
         $mhsditerimas = PendaftarTempatKp::where(['status'=> 'Diterima', 'id_tempat_kp'=> $id_tempat_kp, 'id_tahun'=> $id_tahun])->get();
         $mhsditolaks = PendaftarTempatKp::where(['status'=> 'Ditolak', 'id_tempat_kp'=> $id_tempat_kp, 'id_tahun'=> $id_tahun])->get();
+        $kegiatans = KegiatanKp::where(['id_tempat_kp'=> $id_tempat_kp, 'id_tahun'=> $id_tahun])->get();
 
-        return view('koordinator.pendaftar-id', compact('ta','dosenpembimbing', 'tempatkp', 'mhspengajuans', 'mhsditerimas', 'mhsditolaks', 'dosens'));
+        return view('koordinator.pendaftar-id', compact('ta','kegiatans','dosenpembimbing', 'tempatkp', 'mhspengajuans', 'mhsditerimas', 'mhsditolaks', 'dosens'));
     }
     public function diterima($id)
     {
@@ -66,6 +68,7 @@ class PendaftarController extends Controller
     {
         $dosen = new DosenPembimbing();
         $dosen['id_dosen'] = $request->id_dosen;
+        $dosen['id_tahun'] = $request->id_tahun;
         $dosen['id_tempat_kp'] = $request->id_tempat_kp;
         $dosen->save();
 
@@ -75,6 +78,7 @@ class PendaftarController extends Controller
     {
         $dosen = DosenPembimbing::find($request->id);
         $dosen['id_dosen'] = $request->id_dosen;
+        $dosen['id_tahun'] = $request->id_tahun;
         $dosen['id_tempat_kp'] = $request->id_tempat_kp;
         $dosen->save();
 

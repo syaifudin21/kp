@@ -1,4 +1,4 @@
-@extends('koordinator.koordinator-template')
+@extends('dosen.dosen-template')
 
 @section('content')
 <section class="content-header">
@@ -18,40 +18,13 @@
                     <tr><td>Alamat </td> <td>{{$diterima->tempatkp->alamat}}</td></tr>
                     <tr><td>Diterima </td> <td>{{$diterima->tempatkp->bidang}}</td></tr>
                     <tr><td>Kapasitas </td> <td>{{$diterima->tempatkp->kapasitas}}</td></tr>
-                    <tr><td>Dosen Pembimbing</td> <td>{{(!empty($dosen->id_dosen))? $dosen->dosen->nama: 'Belum Ditunjuk Koordinator'}}</td></tr>
+                    <tr><td>Dosen Pembimbing</td> <td>{{$dosen->dosen->nama}}</td></tr>
                 </table>
             </div>
 
         </div>
 
         <div class="col-sm-8">
-            <div class="box">
-                    <div class="box-header"><b>Kirim Jurnal</b></div>
-                    <div  style="padding: 10px">
-                    <form action="{{route('jurnal.store')}}"  enctype="multipart/form-data" method="post"> @csrf 
-                    <input type="hidden" name="id_tahun" value="{{$ta->id}}">
-                    <div class="form-group row">
-                        <label for="nama_jurnal" class="col-sm-2 col-form-label">Nama Jurnal</label>
-                        <div class="col-sm-10">
-                        <input type="input" name="nama_jurnal" class="form-control" id="nama_jurnal" placeholder="Nama Jurnal / Judul">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                            <label for="nama_jurnal" class="col-sm-2 col-form-label">Lampiran Jurnal</label>
-                            <div class="col-sm-10">
-                            <input type="file" name="jurnal" class="form-control" id="nama_jurnal" placeholder="Nama Jurnal / Judul">
-                            </div>
-                    </div>
-                    <div class="form-group row">
-                            <label for="nama_jurnal" class="col-sm-2 col-form-label"></label>
-                            <div class="col-sm-10 ">
-                                <button type="submit" class="btn btn-primary">Kirim</button>
-                            </div>
-                    </div>
-                    </form>
-                    </div>
-            </div>
 
             <div class="box">
                     <div class="box-header"><b>Jurnal Terkirim</b></div>
@@ -82,7 +55,7 @@
                                 <tr>
                                     <td></td>
                                     <td>
-                                        <form action="{{route('komentar.store')}}" method="post"> @csrf
+                                        <form action="{{route('komentar.dosen.store')}}" method="post"> @csrf
                                             <input type="hidden" name="id_jurnal" value="{{$jurnal->id}}">
                                         <div class="form-group row">
                                             <div class="col-sm-10">

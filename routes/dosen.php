@@ -12,3 +12,7 @@ Route::get('/kerja-praktek/detail/{id_tahun}/{id_tempat_kp}', 'Dosen\KpControlle
 
 Route::resource('pembimbing', 'Dosen\PembimbingController');
 Route::get('pembimbing/tambah/{id_tahun}/{id_tempat_kp}', 'Dosen\PembimbingController@create')->name('pembimbing.tambah');
+
+Route::get('/jurnal', 'Dosen\JurnalController@index');
+Route::get('/jurnal/v/{id_tahun}/{id_tahun_kp}/{id_mahasiswa}', 'Dosen\JurnalController@show');
+Route::post('/jurnal/store/', 'Dosen\JurnalController@komentar')->name('komentar.dosen.store');
