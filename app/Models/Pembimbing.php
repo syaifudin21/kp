@@ -10,21 +10,17 @@ class Pembimbing extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'id_tahun','id_tempat_kp','nama','hp','alamat','password', 'email'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function tempatkp(){
+        return $this->belongsTo(TempatKp::class, 'id_tempat_kp', 'id');
+    }
+    public function tahun(){
+        return $this->belongsTo(TahunAjaran::class, 'id_tahun', 'id');
+    }
 }
